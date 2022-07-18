@@ -6,6 +6,7 @@
 }
 html {
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 *, *::before, *::after {
     box-sizing: inherit;
@@ -60,6 +61,10 @@ main::before {
     margin: 0;
     padding-right: 15px;
     height: 100%;
+}
+a {
+    text-decoration: none;
+    color: var(--main-color);
 }
 li {
     list-style: none;
