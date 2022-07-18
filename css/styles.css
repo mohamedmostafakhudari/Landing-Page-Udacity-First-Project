@@ -73,6 +73,12 @@ li {
     align-items: center;
     transition: background-color 200ms ease-in-out;
 }
+/* Highlight Nav For Section That's In The ViewPort ((1))*/
+
+li.active-section {
+    background-color: #ffffff38;
+    border-bottom: 2px solid #ffd400;
+}
 .burger__menu {
     /* background-color: white; */
     position: absolute;
@@ -246,7 +252,7 @@ section:nth-of-type(3n + 1) .landing__container::after {
     bottom: -5em;
     transition: ease-in-out 0.5s all;
 }
-/* Active State */
+/* Active State When The Section Is In The Viewport ((1)) */
 section.active {
     background-image: linear-gradient(0deg,rgb(0 0 0 / 10%) 0%,rgb(0 0 0 / 0%) 100%);
 }
@@ -305,7 +311,6 @@ section.active .landing__container::after {
        display: none;
     }
     /* Nav bar mobile */
-    /* Nav bar mobile active state */
 .page__header .navbar__menu {
     display: unset;
     position: absolute;
