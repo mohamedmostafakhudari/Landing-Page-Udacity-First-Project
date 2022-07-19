@@ -78,7 +78,7 @@ li {
     align-items: center;
     transition: background-color 200ms ease-in-out;
 }
-/* Highlight Nav For Section That's In The ViewPort ((1))*/
+/* Highlight Nav Item For Section That's In The ViewPort ((1))*/
 
 li.active-section {
     background-color: #ffffff38;

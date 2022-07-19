@@ -25,7 +25,9 @@ window.addEventListener('scroll', function() {
         if (isInViewport(section)) {
         //I added the Init of <li> NodeList here because when i put it at the first, it initializes before the <li> tags being added to the page and store an empty list as you know that nodeLists are static not live
           const liTags = navList.querySelectorAll('li');
-          // Highlight Nav For Section That's In The ViewPort ((1))
+          // Highlight Active Section That's In The ViewPort ((3))
+          section.classList.add('active');
+          // Highlight Nav Item For Section That's In The ViewPort ((1))
           liTags.forEach(item => {
             //both sharing the same dataset
             if (item.dataset.nav === section.dataset.nav) {
@@ -34,6 +36,8 @@ window.addEventListener('scroll', function() {
                 item.classList.remove('active-section');
             }
           })
-        }
+        } else {
+          section.classList.remove('active');
+        };
    })
 });
