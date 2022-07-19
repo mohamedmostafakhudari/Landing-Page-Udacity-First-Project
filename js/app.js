@@ -1,6 +1,7 @@
 //Variables
 const navList = document.getElementById('navbar__list');
 const sections = document.querySelectorAll('section');
+const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
 // console.log(sections);
 // console.log(navList.innerHTML);
 
@@ -11,6 +12,18 @@ function isInViewport(element) {
          rect.top < window.innerHeight &&
          rect.bottom > window.innerHeight
     );
+};
+//Scroll To Top Button ((5))
+function scrollFunction() {
+  if (document.body.scrollTop > 580 || document.documentElement.scrollTop > 580) {
+    scrollToTopBtn.style.display = 'block';
+  } else {
+    scrollToTopBtn.style.display = 'none';
+  }
+}
+function toTheTop() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
 }
 
 //Add sections to navList ((2))
@@ -52,3 +65,6 @@ window.addEventListener('scroll', function() {
         };
    })
 });
+//Scroll To Top Btn ((5))
+window.addEventListener('scroll', scrollFunction);
+scrollToTopBtn.addEventListener('click', toTheTop);

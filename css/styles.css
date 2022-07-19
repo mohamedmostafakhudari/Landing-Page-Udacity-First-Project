@@ -288,6 +288,16 @@ section.active .landing__container::after {
                    rotate(-360deg);
     }
 }
+/* Scroll To Top Btn ((5)) */
+#scroll-to-top-btn {
+    color: #fff;
+    position: fixed;
+    right: 3%;
+    bottom: 0;
+    display: none;
+    z-index: 999;
+    cursor: pointer;
+}
 /* Media Queries */
 @media only screen and (min-width: 35em) {
     section div.landing__container {
