@@ -47,7 +47,7 @@ Responsive Landing Page Project (Udacity)
 
 ### Requirements
 
-1. Loop over sections and append each section's data-nav as an HTML <li><a></a></li> element text in the <ul> element.
+1. Loop over sections and append each section's data-nav as an HTML <li><a> element text in the <ul> element.
 2. Listen to scrolling and determine which section is in the viewport using information provided by Element.getBoundingClientRect() method then add .active class to it using Element.classList.add() method and remove it from the other sections using Element.classList.remove() method.
 3. By linking the id of each section as a value for href attribute for <a> element inside each <li> element Ex. <li><a href='#seciton1'></a></li>. Now by clicked an item from the nav menu the link will scroll for the appropriate section. And for Smoothness add the property scroll-behavior: smooth to html element in css.
 
