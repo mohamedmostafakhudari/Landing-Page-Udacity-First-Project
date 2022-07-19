@@ -4,9 +4,6 @@ const sections = document.querySelectorAll('section');
 const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
 const burgerMenu = document.querySelector('.burger__menu');
 const pageHeader = document.querySelector('.page__header');
-// console.log(collapseBtn);
-// console.log(sections);
-// console.log(navList.innerHTML);
 
 //Functions
 function isInViewport(element) {
@@ -17,7 +14,7 @@ function isInViewport(element) {
     );
   };
   //Scroll To Top Button ((5))
-  function scrollFunction() {
+function scrollFunction() {
     if (document.body.scrollTop > 580 || document.documentElement.scrollTop > 580) {
       scrollToTopBtn.style.display = 'block';
     } else {
@@ -70,7 +67,6 @@ window.addEventListener('scroll', function() {
     if (burgerMenu.classList.contains('close-state')) return; //Don't hide the nav when it's toggled on
      nav.classList.add('hide');
     }, 700);
-    //  console.log(timer);
     sections.forEach(section => {
       if (isInViewport(section)) {
         //I added the Init of <li> NodeList here because when i put it at the first, it initializes before the <li> tags being added to the page and store an empty list as you know that nodeLists are static not live
