@@ -13,7 +13,7 @@ Responsive Landing Page Project (Udacity)
 ## Additional features
 
 1. Responsive navigation menu
-2.  While scrolling navigation item corresponding to the section in viewport is highlighted.
+2. While scrolling navigation item corresponding to the section in viewport is highlighted.
 3. Hide fixed navigation bar while not scrolling
 4. Add a scroll to top button on the page that's only visible when the user scrolls below the fold of the page.
 5. Make sections collapsible
@@ -46,6 +46,7 @@ Responsive Landing Page Project (Udacity)
 ## Summary For How Each Requirement Has Fulfilled
 
 ### Requirements
+
 1. Loop over sections and append each section's data-nav as an HTML <li><a></a></li> element text in the <ul> element.
 
 2. Listen to scrolling and determine which section is in the viewport using information provided by Element.getBoundingClientRect() method then add .active class to it using Element.classList.add() method and remove it from the other sections using Element.classList.remove() method.
