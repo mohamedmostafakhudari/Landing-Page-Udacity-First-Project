@@ -174,25 +174,40 @@ section {
     margin-bottom: 6rem;
 
 }
-section div.landing__container {
+section .landing__container {
     padding: var(--container-padding);
+    position: relative;
 }
 section h2 {
     font-size: 3rem;
     border-bottom: 1px solid var(--main-border-color);
     margin-bottom: 2.5rem;
 }
+/* Collapsible Sections ((6)) */
+section:nth-of-type(odd) .collapse-btn {
+    position: absolute;
+    right: 13%;
+    top: 140px;
+}
+section:nth-of-type(even) .collapse-btn {
+    position: absolute;
+    left: 13%;
+    top: 140px;
+}
+section .landing__container.collapse p {
+    display: none;
+}
 section p {
     color: #eee;
     line-height: 1.6em;
 }
-
 
 section:nth-of-type(even) .landing__container {
     margin-right: 0;
     margin-left: auto;
     text-align: right;
 }
+
 .page__footer {
     background-color: #000;
     color: var(--main-color);
