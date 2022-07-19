@@ -3,6 +3,7 @@ const navList = document.getElementById('navbar__list');
 const sections = document.querySelectorAll('section');
 const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
 const burgerMenu = document.querySelector('.burger__menu');
+const pageHeader = document.querySelector('.page__header');
 // console.log(collapseBtn);
 // console.log(sections);
 // console.log(navList.innerHTML);
@@ -47,6 +48,9 @@ function toggleMenu() {
   burgerMenu.classList.toggle('close-state');
 }
 
+function showNav() {
+  this.classList.remove('hide');
+}
 //Add sections to navList ((2))
 sections.forEach(section => {
   let listHtml = `<li data-nav='${section.dataset.nav}'><a href='#${section.getAttribute('id')}'>${section.dataset.nav}</a></li>`;
@@ -100,3 +104,6 @@ window.addEventListener('scroll', function() {
   })
   // BurgerMenu Toggle Btn ((7))
   burgerMenu.addEventListener('click', toggleMenu);
+  
+  // Show Nav When Mouse Is Over It
+  pageHeader.addEventListener('mouseover', showNav);

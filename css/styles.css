@@ -70,6 +70,7 @@ main::before {
 a {
     text-decoration: none;
     color: var(--main-color);
+    cursor: default;
 }
 li {
     list-style: none;
