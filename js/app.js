@@ -2,6 +2,7 @@
 const navList = document.getElementById('navbar__list');
 const sections = document.querySelectorAll('section');
 const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
+const burgerMenu = document.querySelector('.burger__menu');
 // console.log(collapseBtn);
 // console.log(sections);
 // console.log(navList.innerHTML);
@@ -39,6 +40,13 @@ function collapse(e) {
   }
 }
 
+function toggleMenu() {
+  const menu = burgerMenu.nextElementSibling;
+  console.log(menu);
+  menu.classList.toggle('active-state');
+  burgerMenu.classList.toggle('close-state');
+}
+
 //Add sections to navList ((2))
 sections.forEach(section => {
   let listHtml = `<li data-nav='${section.dataset.nav}'><a href='#${section.getAttribute('id')}'>${section.dataset.nav}</a></li>`;
@@ -55,8 +63,9 @@ window.addEventListener('scroll', function() {
     clearTimeout(timer);
   }
    timer = setTimeout(function() {
+    if (burgerMenu.classList.contains('close-state')) return; //Don't hide the nav when it's toggled on
      nav.classList.add('hide');
-    }, 300);
+    }, 700);
     //  console.log(timer);
     sections.forEach(section => {
       if (isInViewport(section)) {
@@ -89,3 +98,5 @@ window.addEventListener('scroll', function() {
     const collapseBtn = section.querySelector('.collapse-btn');
     collapseBtn.addEventListener('click', collapse);
   })
+  // BurgerMenu Toggle Btn ((7))
+  burgerMenu.addEventListener('click', toggleMenu);
