@@ -20,7 +20,18 @@ sections.forEach(section => {
 });
 
 //Listen for scrolling
+let timer = null;
 window.addEventListener('scroll', function() {
+  const nav = document.querySelector('.page__header');
+  //Hide Fixed Nav Bar While Not Scrolling ((4))
+   if (timer !== null) {
+      nav.classList.remove('hide');
+      clearTimeout(timer);
+   }
+   timer = setTimeout(function() {
+    nav.classList.add('hide');
+   }, 300);
+  //  console.log(timer);
    sections.forEach(section => {
         if (isInViewport(section)) {
         //I added the Init of <li> NodeList here because when i put it at the first, it initializes before the <li> tags being added to the page and store an empty list as you know that nodeLists are static not live

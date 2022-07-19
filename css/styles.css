@@ -45,6 +45,7 @@ main::before {
     box-shadow: 0px 2px 0px 0px #ffffff14;
     position: fixed;
     z-index: 5;
+    transition: opacity 500ms ease-in-out;
      
 }
 .page__header .navbar__menu {
@@ -61,6 +62,10 @@ main::before {
     margin: 0;
     padding-right: 15px;
     height: 100%;
+}
+/* Hide Fixed Nav Bar While Not Scrolling ((4)) */
+.page__header.hide {
+    opacity: 0;
 }
 a {
     text-decoration: none;
