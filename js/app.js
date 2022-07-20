@@ -49,15 +49,29 @@ function showNav() {
   this.classList.remove('hide');
 }
 //Add sections to navList ((2))
+const fragment = document.createDocumentFragment();
 sections.forEach(section => {
-  let listHtml = `<li data-nav='${section.dataset.nav}'><a href='#${section.getAttribute('id')}'>${section.dataset.nav}</a></li>`;
-  navList.insertAdjacentHTML('beforeend', listHtml);  
+  const navTitle = section.getAttribute('data-nav');
+  const id = section.getAttribute('id');
+  const link = document.createElement('a');
+  const linkItem = document.createElement('li');
+  link.href = `#${id}`;
+  link.textContent = `${navTitle}`
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    section.scrollIntoView({ behavior: "smooth" });
+  });
+  linkItem.appendChild(link);
+  fragment.appendChild(linkItem);
 });
+
+navList.appendChild(fragment);
 
 //Listen for scrolling
 let timer = null;
 window.addEventListener('scroll', function() {
   const nav = document.querySelector('.page__header');
+  
   //Hide Fixed Nav Bar While Not Scrolling ((4))
   if (timer !== null) {
     nav.classList.remove('hide');
@@ -67,23 +81,20 @@ window.addEventListener('scroll', function() {
     if (burgerMenu.classList.contains('close-state')) return; //Don't hide the nav when it's toggled on
      nav.classList.add('hide');
     }, 700);
+
+    // Highlight Nav Item For Section That's In The ViewPort ((1))
+    // Highlight Active Section That's In The ViewPort ((3))
     sections.forEach(section => {
+      const id = section.getAttribute('id');
+      const navLink = navList.querySelector(`li a[href = '#${id}']`);
+      const navItem = navLink.parentElement;
       if (isInViewport(section)) {
-        //I added the Init of <li> NodeList here because when i put it at the first, it initializes before the <li> tags being added to the page and store an empty list as you know that nodeLists are static not live
-        const liTags = navList.querySelectorAll('li');
-        // Highlight Active Section That's In The ViewPort ((3))
         section.classList.add('active');
-        // Highlight Nav Item For Section That's In The ViewPort ((1))
-        liTags.forEach(item => {
-          //both sharing the same dataset
-          if (item.dataset.nav === section.dataset.nav) {
-            item.classList.add('active-section');
-          } else {
-            item.classList.remove('active-section');
-          }
-        })
+        navItem.classList.add('active-section');
+       
       } else {
         section.classList.remove('active');
+        navItem.classList.remove('active-section');
       };
     })
   });
